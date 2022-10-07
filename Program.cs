@@ -42,8 +42,6 @@
                 
                 Console.WriteLine();
 
-
-
                 Console.WriteLine("------------------------------------------------");
                 Console.WriteLine("Do you want to create another circle? Y/N");
                 string input = Console.ReadLine().ToLower();
@@ -53,11 +51,9 @@
                     start = true;
                 }
                 else if (input == "n")
-                {
-                    
+                { 
                     Console.WriteLine($"Goodbye. You created {count} circles");
                     break; 
-
                 }
                 else //if user input is not "y" or "n"
                 {
