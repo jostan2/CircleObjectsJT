@@ -10,7 +10,7 @@
             bool start = true;
             while(start)
             {
-                count++;
+                
                 try //exception handling, accepts only numbers / decimals.
                 {
                     Console.WriteLine("Enter the radius of a circle"); //prompt user to enter the number of sides for a pair of dice
@@ -43,23 +43,30 @@
                 Console.WriteLine();
 
                 Console.WriteLine("------------------------------------------------");
-                Console.WriteLine("Do you want to create another circle? Y/N");
-                string input = Console.ReadLine().ToLower();
 
-                if (input == "y")
-                {
-                    start = true;
-                }
-                else if (input == "n")
-                { 
-                    Console.WriteLine($"Goodbye. You created {count} circles");
-                    break; 
-                }
-                else //if user input is not "y" or "n"
-                {
-                    Console.WriteLine("I'm sorry, I'm afraid I can't do that, invalid input. Please try again.");
-                    continue;
-                }
+                count++;
+                start = restart(count);
+            }
+        }
+
+        public static bool restart(int count)
+        {
+            Console.WriteLine("Do you want to create another circle? Y/N");
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "y")
+            {
+                return true;
+            }
+            else if (input == "n")
+            {
+                Console.WriteLine($"Goodbye. You created {count} circles");
+                return  false;
+            }
+            else //if user input is not "y" or "n"
+            {
+                Console.WriteLine("I'm sorry, I'm afraid I can't do that, invalid input. Please try again.");
+                return restart(count);
             }
         }
     }
